@@ -9,7 +9,6 @@ class APIHelper {
     var response = await http.get(Uri.parse(apiLink));
     if (response.statusCode == 200) {
       var json = jsonDecode(response.body);
-      print("=============== $json");
       QuestionModel questionModel = QuestionModel.mapToModel(json);
       return questionModel;
     }

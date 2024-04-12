@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 
 class QuestionController extends GetxController {
   Rxn<QuestionModel>? questionModel = Rxn();
+  Rx<int> currentQuestionIndex = 0.obs;
 
 
   Future<void> getQuestionData() async {
@@ -12,4 +13,12 @@ class QuestionController extends GetxController {
     questionModel?.value = w1;
   }
 
+  Future<void> nextQuestion() async {
+    if (currentQuestionIndex < questionModel!.value!.listResults!.length - 1) {
+      currentQuestionIndex.value++;
+    } else {
+      currentQuestionIndex = 0.obs;
+      await getQuestionData();
+    }
+  }
 }

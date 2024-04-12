@@ -12,16 +12,10 @@ class QuestionScreen extends StatefulWidget {
 
 class _QuestionScreenState extends State<QuestionScreen> {
   QuestionController questionController = Get.put(QuestionController());
-  int currentQuestionIndex = 0;
 
   @override
   void initState() {
     super.initState();
-    questionController.getQuestionData();
-  }
-
-  void nextQuestion() {
-    currentQuestionIndex++;
     questionController.getQuestionData();
   }
 
@@ -41,7 +35,7 @@ class _QuestionScreenState extends State<QuestionScreen> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                      Text(
-                      "Q:${currentQuestionIndex + 1}.",
+                      "Q:${questionController.currentQuestionIndex.value + 1}.",
                       style:
                       TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
                     ),
@@ -49,7 +43,7 @@ class _QuestionScreenState extends State<QuestionScreen> {
                       height: 10,
                     ),
                     Text(
-                      "${questionController.questionModel!.value!.listResults![currentQuestionIndex].question}",
+                      "${questionController.questionModel!.value!.listResults![questionController.currentQuestionIndex.value].question}",
                       style:
                       const TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
                     ),
@@ -60,7 +54,7 @@ class _QuestionScreenState extends State<QuestionScreen> {
                       width: double.infinity,
                       child: ElevatedButton(
                         onPressed: () {
-                          nextQuestion();
+                          questionController.nextQuestion();
                         },
                         style: ButtonStyle(
                           backgroundColor:
@@ -87,7 +81,7 @@ class _QuestionScreenState extends State<QuestionScreen> {
                           MaterialStateProperty.all(Colors.green.shade600),
                         ),
                         child: Text(
-                          "A. ${questionController.questionModel!.value!.listResults![currentQuestionIndex].correct_answer}",
+                          "A. ${questionController.questionModel!.value!.listResults![questionController.currentQuestionIndex.value].correct_answer}",
                           style: const TextStyle(
                               fontWeight: FontWeight.bold,
                               fontSize: 20,
@@ -107,7 +101,7 @@ class _QuestionScreenState extends State<QuestionScreen> {
                           MaterialStateProperty.all(Colors.green.shade600),
                         ),
                         child: Text(
-                          "B. ${questionController.questionModel!.value!.listResults![currentQuestionIndex].incorrectAnswersList![0]}",
+                          "B. ${questionController.questionModel!.value!.listResults![questionController.currentQuestionIndex.value].incorrectAnswersList![0]}",
                           style: const TextStyle(
                               fontWeight: FontWeight.bold,
                               fontSize: 20,
@@ -127,7 +121,7 @@ class _QuestionScreenState extends State<QuestionScreen> {
                           MaterialStateProperty.all(Colors.green.shade600),
                         ),
                         child: Text(
-                          "c.${questionController.questionModel!.value!.listResults![currentQuestionIndex].incorrectAnswersList![1]}",
+                          "c.${questionController.questionModel!.value!.listResults![questionController.currentQuestionIndex.value].incorrectAnswersList![1]}",
                           style: const TextStyle(
                               fontWeight: FontWeight.bold,
                               fontSize: 20,
@@ -147,7 +141,7 @@ class _QuestionScreenState extends State<QuestionScreen> {
                           MaterialStateProperty.all(Colors.green.shade600),
                         ),
                         child: Text(
-                          "D.${questionController.questionModel!.value!.listResults![currentQuestionIndex].incorrectAnswersList![2]}",
+                          "D.${questionController.questionModel!.value!.listResults![questionController.currentQuestionIndex.value].incorrectAnswersList![2]}",
                           style: const TextStyle(
                               fontWeight: FontWeight.bold,
                               fontSize: 20,
