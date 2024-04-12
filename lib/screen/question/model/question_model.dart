@@ -15,7 +15,7 @@ class QuestionModel{
 
 class ResultsModel{
   String? type,difficulty,category,question,correct_answer;
-  List<String>? IncorrectAnswersList=[];
+  List? incorrectAnswersList=[];
 
   ResultsModel(
       {this.type,
@@ -23,7 +23,7 @@ class ResultsModel{
       this.category,
       this.question,
       this.correct_answer,
-      this.IncorrectAnswersList});
+      this.incorrectAnswersList});
 
   factory ResultsModel.mapToModel(Map m1){
     return ResultsModel(
@@ -32,7 +32,7 @@ class ResultsModel{
       category: m1['category'],
       question: m1['question'],
       correct_answer: m1['correct_answer'],
-      IncorrectAnswersList:m1['incorrect_answers'],
+      incorrectAnswersList:m1['incorrect_answers'],
     );
   }
 }

@@ -9,6 +9,7 @@ class GameStartScreen extends StatefulWidget {
 }
 
 class _GameStartScreenState extends State<GameStartScreen> {
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
