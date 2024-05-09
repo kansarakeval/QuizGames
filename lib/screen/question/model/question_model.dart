@@ -1,39 +1,46 @@
-class QuestionModel{
+class QuestionModel {
   int? response_code;
-  List<ResultsModel>? listResults=[];
+  List<ResultModel>? resultList = [];
 
-  QuestionModel({this.response_code, this.listResults});
+  QuestionModel({this.resultList, this.response_code});
 
-  factory QuestionModel.mapToModel(Map m1){
+  factory QuestionModel.mapToModel(Map m1) {
     List l1 = m1['results'];
     return QuestionModel(
       response_code: m1['response_code'],
-      listResults: l1.map((e) => ResultsModel.mapToModel(e)).toList(),
+      resultList: l1.map((e) => ResultModel.mapToModel(e)).toList(),
     );
   }
 }
 
-class ResultsModel{
-  String? type,difficulty,category,question,correct_answer;
-  List? incorrectAnswersList=[];
+class ResultModel {
+  String? type, difficulty, question, category, correct_answer;
+  List?   incorrectAnswers;
 
-  ResultsModel(
-      {this.type,
-      this.difficulty,
-      this.category,
-      this.question,
-      this.correct_answer,
-      this.incorrectAnswersList});
+  ResultModel(
+      {this.category,
+        this.correct_answer,
+        this.difficulty,
+        this.question,
+        this.type,
+        this.incorrectAnswers});
 
-  factory ResultsModel.mapToModel(Map m1){
-    return ResultsModel(
-      type: m1['type'],
-      difficulty: m1['difficulty'],
+  factory ResultModel.mapToModel(Map m1) {
+    return ResultModel(
       category: m1['category'],
-      question: m1['question'],
       correct_answer: m1['correct_answer'],
-      incorrectAnswersList:m1['incorrect_answers'],
+      difficulty: m1['difficulty'],
+      question: m1['question'],
+      type: m1['type'],
+      incorrectAnswers: m1['incorrect_answers'],
     );
   }
 }
 
+class QuizModel {
+  String? question,correct_answer;
+  List? option;
+
+  QuizModel(
+      {this.question, this.correct_answer,this.option});
+}

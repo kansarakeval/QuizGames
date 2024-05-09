@@ -17,7 +17,7 @@ class _GameStartScreenState extends State<GameStartScreen> {
       body: Stack(
         children: [
           Container(
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
                 image: DecorationImage(
               image: AssetImage("asset/img/bg.jpeg"),
               fit: BoxFit.cover,
@@ -31,7 +31,7 @@ class _GameStartScreenState extends State<GameStartScreen> {
                   onTap: () {
                     Get.offAllNamed('question');
                   },
-                  child: Image(
+                  child: const Image(
                     image: AssetImage("asset/img/start.png"),fit: BoxFit.cover,
                   ),
                 ),
