@@ -11,6 +11,8 @@ class QuestionController extends GetxController {
   RxInt totalScore = 0.obs;
   RxInt count = 20.obs;
 
+  Timer? timer;
+
   Future<void> getQuiz() async {
     APIHelper apiHelper = APIHelper();
     QuestionModel? m1 = await apiHelper.questionCall();
@@ -45,7 +47,7 @@ class QuestionController extends GetxController {
 
   //timer
   void countDown() {
-    Timer.periodic(const Duration(seconds: 1), (timer) {
+    timer = Timer.periodic(const Duration(seconds: 1), (timer) {
       if (count > 0 && index.value != quizList.length) {
         count.value--;
       } else {
