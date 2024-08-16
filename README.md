@@ -1,19 +1,11 @@
-# ansergame
+# QuizGame
 
 A new Flutter project.
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Features & Coding Tools
+- API
+- StateManagement - GetX
+- Timer
 
 <p>
   <img src="https://github.com/kansarakeval/ansergame/assets/119046853/2b811c19-9223-49b5-ab37-0a3ea0912918" hight="450" width="180">
